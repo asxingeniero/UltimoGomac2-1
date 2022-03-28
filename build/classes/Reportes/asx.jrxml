@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6cc69e8-072c-4653-a2c4-dff95addda00">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="219"/>
+	<property name="ireport.y" value="8"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="gomac"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="219"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="776"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="fecha_inicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_termino" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT v.cod_venta , v.fecha_venta ,v.total_venta,(SELECT nombre_persona from persona WHERE cod_persona = v.cod_clienteFK )as NombreC ,d.cod_detalle,d.cod_productoFK ,d.precio_v_mayor, d.descuento_xp, d.subtotal,d.precio_compra,d.subPrecioCompra,(SELECT nombre_producto FROM producto WHERE cod_producto = d.cod_productoFK)AS nombreProd,d.precio_producto,d.cantidad_detalle FROM venta v INNER JOIN detalle_venta d ON v.cod_venta = d.cod_ventaFK WHERE v.fecha_venta BETWEEN $P{fecha_inicio} AND $P{fecha_termino} ORDER BY v.cod_venta ASC]]>
+	</queryString>
+	<field name="cod_venta" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cod_venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="cod_venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_venta" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="fecha_venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha_venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_venta" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="total_venta"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_venta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NombreC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NombreC"/>
+		<property name="com.jaspersoft.studio.field.label" value="NombreC"/>
+	</field>
+	<field name="cod_detalle" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cod_detalle"/>
+		<property name="com.jaspersoft.studio.field.label" value="cod_detalle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_productoFK" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cod_productoFK"/>
+		<property name="com.jaspersoft.studio.field.label" value="cod_productoFK"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_v_mayor" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="precio_v_mayor"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio_v_mayor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descuento_xp" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="descuento_xp"/>
+		<property name="com.jaspersoft.studio.field.label" value="descuento_xp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_compra" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="precio_compra"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio_compra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subPrecioCompra" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="subPrecioCompra"/>
+		<property name="com.jaspersoft.studio.field.label" value="subPrecioCompra"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreProd" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombreProd"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombreProd"/>
+	</field>
+	<field name="precio_producto" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="precio_producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio_producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad_detalle" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_detalle"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_detalle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalle_venta"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="totalventas" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{total_venta}]]></variableExpression>
+	</variable>
+	<variable name="st" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{cantidad_detalle}*$F{precio_producto}]]></variableExpression>
+	</variable>
+	<variable name="totalcompra" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{subPrecioCompra}]]></variableExpression>
+	</variable>
+	<variable name="recaudo" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{totalventas}-$V{totalcompra}]]></variableExpression>
+	</variable>
+	<group name="cod_venta">
+		<groupExpression><![CDATA[$F{cod_venta}]]></groupExpression>
+		<groupHeader>
+			<band height="60">
+				<textField>
+					<reportElement style="SubTitle" x="40" y="0" width="497" height="14" forecolor="#333333" uuid="aa74d21b-d0b2-4cd7-b71e-5cf82672818f"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cod_venta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="0" y="14" width="40" height="15" uuid="ca84ada7-7c15-421e-96c2-51b82de1476e"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha :]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement style="Detail" x="40" y="14" width="63" height="15" uuid="c5bd990a-a1e4-48b2-bb31-5ac795384196"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha_venta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="40" height="14" uuid="e35d6884-94f4-457f-a8f9-91b9763b1c44"/>
+					<textElement markup="none">
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Venta N°]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="103" y="14" width="40" height="15" uuid="9dbf662d-d74f-47ac-8d5d-6c26bcdf6ec9"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cliente :]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="143" y="14" width="155" height="15" uuid="fce85faf-3fce-452e-a6ea-035e1194a40d"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NombreC}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="0" y="39" width="103" height="15" uuid="1f142f9e-914a-4ee3-85db-3effa915b791"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Codigo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="103" y="39" width="79" height="15" uuid="df06b7a6-cf66-444e-b12e-1bd5ecdffd76"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Producto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="182" y="40" width="79" height="15" uuid="99a7f4b2-e203-488a-868e-5b151ffccc89"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<text><![CDATA[Precio Venta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="383" y="39" width="79" height="15" uuid="d19d35c0-e50e-4cd8-b3a7-5aa40be754f1"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<text><![CDATA[Cantidad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="482" y="39" width="79" height="15" uuid="75cfe4b4-92fc-44a7-ad8e-18414e97369c"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<text><![CDATA[Sub Total]]></text>
+				</staticText>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="54" width="555" height="1" uuid="4e8eab41-be72-497d-a451-431b5d8f8152"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement style="Column header" x="260" y="40" width="79" height="15" uuid="fa845934-68db-402c-82a1-c2cd96b9cd7b"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<text><![CDATA[Al mayor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="322" y="40" width="79" height="15" uuid="b21e1fa2-93a2-4db3-9be4-72c3b5d9c612"/>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+					<text><![CDATA[Descuento%]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="184" y="25" width="186" height="20" uuid="46505102-72a1-4fa6-8313-befc0ea47a77"/>
+				<textElement markup="none">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe de ventas con detalle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="5" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="3f977c68-1aa9-4470-af7e-01b57c044001"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="103" y="0" width="79" height="15" uuid="13d2f51f-b20a-4079-8233-d05b81bc5244"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreProd}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="Detail" x="192" y="0" width="79" height="15" uuid="f5d2a32e-9f3c-4265-b554-1352320359f1"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio_producto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement style="Detail" x="401" y="0" width="79" height="15" uuid="82876bec-85e5-4a51-9073-6792f566f832"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad_detalle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="1" width="103" height="15" uuid="6bec65c7-f13b-4461-b5af-81f685c18304"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cod_productoFK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="0" width="55" height="15" uuid="c59ee83a-60e9-4cc0-b158-684af0a93d1b"/>
+				<textFieldExpression><![CDATA[$F{precio_v_mayor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="48" height="15" uuid="5b9366de-23ba-412b-837a-d167ae522260"/>
+				<textFieldExpression><![CDATA[$F{descuento_xp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="0" width="73" height="15" uuid="4216f789-1b61-4ae8-aa9e-93000c73c9b5"/>
+				<textFieldExpression><![CDATA[$V{st}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="10" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="dee58b3e-8d4d-42c0-b5fa-645611c0379e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="88" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="3f566fbd-288d-4c3a-adbc-3c627650a91c"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="204" y="10" width="100" height="15" uuid="ebba2cdc-4062-40a1-b95f-9fb1b8c00b17">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[total ventas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="311" y="10" width="100" height="15" uuid="cea67e7f-8519-4b8f-929a-3a0c8146c633">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{totalventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="204" y="30" width="100" height="15" uuid="8de7a64c-d2ce-40ff-b483-0ad02fe424ab">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Total compras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="50" width="100" height="15" uuid="86cee12b-27ba-49c6-8a63-49f9cb318a3f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[Total recaudo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="311" y="30" width="100" height="15" uuid="7e7ff260-db02-4238-9d8a-66937fb191ab">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{totalcompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="50" width="100" height="15" uuid="6ce06eca-d920-4381-9763-4b51b0d0ded3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{recaudo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
