@@ -97,6 +97,7 @@ public class FRMPRINCIPAL extends javax.swing.JFrame {
         MenuPersonal = new javax.swing.JMenu();
         JmIClientes = new javax.swing.JMenuItem();
         JmIUsuarios = new javax.swing.JMenuItem();
+        JmIProveedor = new javax.swing.JMenuItem();
         MenuProductos = new javax.swing.JMenu();
         JmIProductos = new javax.swing.JMenuItem();
         JmIStock = new javax.swing.JMenuItem();
@@ -198,6 +199,11 @@ public class FRMPRINCIPAL extends javax.swing.JFrame {
         jmIVenta.add(JmIGastos);
 
         JmICompras.setText("Compras");
+        JmICompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JmIComprasActionPerformed(evt);
+            }
+        });
         jmIVenta.add(JmICompras);
 
         menuBar.add(jmIVenta);
@@ -234,6 +240,14 @@ public class FRMPRINCIPAL extends javax.swing.JFrame {
             }
         });
         MenuPersonal.add(JmIUsuarios);
+
+        JmIProveedor.setText("Proveedor");
+        JmIProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JmIProveedorActionPerformed(evt);
+            }
+        });
+        MenuPersonal.add(JmIProveedor);
 
         menuBar.add(MenuPersonal);
 
@@ -962,6 +976,30 @@ public class FRMPRINCIPAL extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JmIGastosActionPerformed
 
+    private void JmIComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmIComprasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JmIComprasActionPerformed
+
+    private void JmIProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmIProveedorActionPerformed
+        // TODO add your handling code here:
+        FrmProveedor form = new FrmProveedor();
+        deskPricipal.add(form);
+
+        form.setClosable(true);
+        form.setIconifiable(true);
+        try {
+            form.setMaximum(true);
+        } catch (Exception e) {
+        }
+
+        form.toFront();
+        form.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        
+    }//GEN-LAST:event_JmIProveedorActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1007,6 +1045,7 @@ public class FRMPRINCIPAL extends javax.swing.JFrame {
     javax.swing.JMenuItem JmIHistorial;
     javax.swing.JMenuItem JmIProdVendFEc;
     javax.swing.JMenuItem JmIProductos;
+    javax.swing.JMenuItem JmIProveedor;
     javax.swing.JMenuItem JmIStock;
     javax.swing.JMenuItem JmIStock1;
     javax.swing.JMenuItem JmIStockCritico;
