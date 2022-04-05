@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 09-07-2021 a las 20:24:33
+-- Tiempo de generación: 04-04-2022 a las 20:39:36
 -- Versión del servidor: 5.7.19
--- Versión de PHP: 5.6.31
+-- Versión de PHP: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -166,6 +166,21 @@ CREATE TABLE IF NOT EXISTS `devolucion` (
   `fecha_devolucion` date NOT NULL,
   PRIMARY KEY (`cod_devolucion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `gastos`
+--
+
+DROP TABLE IF EXISTS `gastos`;
+CREATE TABLE IF NOT EXISTS `gastos` (
+  `cod_gastos` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+  `valor` bigint(20) NOT NULL,
+  `obs` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  PRIMARY KEY (`cod_gastos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci COMMENT='gastos personales diarios';
 
 -- --------------------------------------------------------
 

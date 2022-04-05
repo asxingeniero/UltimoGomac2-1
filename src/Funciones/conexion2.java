@@ -18,7 +18,8 @@ public class conexion2 {
         String url = "jdbc:mysql://127.0.0.1/gomac_v_0707_dev";
         String driver = "com.mysql.jdbc.Driver";
         String usuario = "root";
-        String password = "1234543219";
+        String password = "";
+       // String password = "1234543219";
 
         try {
             Class.forName(driver);
