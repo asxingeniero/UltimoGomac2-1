@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/JAC/Documents/NetBeansProjects/gomac/GOMAC27072021/src/Controlador/FrmCliente.java</file>
+            <file>file:/C:/Users/JAC/Documents/NetBeansProjects/gomac/GOMAC27072021/src/Funciones/Fcliente.java</file>
+            <file>file:/C:/Users/JAC/Documents/NetBeansProjects/gomac/GOMAC27072021/src/Funciones/Fproveedor.java</file>
+            <file>file:/C:/Users/JAC/Documents/NetBeansProjects/gomac/GOMAC27072021/src/Datos/Dproveedor.java</file>
+            <file>file:/C:/Users/JAC/Documents/NetBeansProjects/gomac/GOMAC27072021/src/Controlador/FrmProveedor.java</file>
+            <file>file:/C:/Users/JAC/Documents/NetBeansProjects/gomac/GOMAC27072021/src/Controlador/FRMPRINCIPAL.java</file>
+        </group>
     </open-files>
 </project-private>
