@@ -541,7 +541,7 @@ public final class FrmProveedor extends javax.swing.JInternalFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (txtNombre_persona.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Debes ingresar un Nombre");
+            JOptionPane.showMessageDialog(null, "Debes ingresar una Razon Social");
             txtNombre_persona.requestFocus();
             return;
         }
@@ -559,7 +559,7 @@ public final class FrmProveedor extends javax.swing.JInternalFrame {
         }
 
         if (txtRut.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Debes ingresar un N° de Cedula");
+            JOptionPane.showMessageDialog(null, "Debes ingresar un Nit o Rut");
             txtRut.requestFocus();
             return;
         }
@@ -597,7 +597,7 @@ public final class FrmProveedor extends javax.swing.JInternalFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         if (txtNombre_persona.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Debes ingresar un Nombre.");
+            JOptionPane.showMessageDialog(null, "Debes ingresar nombre de Empresa.");
             txtNombre_persona.requestFocus();
             return;
         }
@@ -628,11 +628,11 @@ public final class FrmProveedor extends javax.swing.JInternalFrame {
         datos.setRut_proveedor(txtRut.getText());
 
         if (funcion.insertar(datos)) {
-            JOptionPane.showMessageDialog(null, "Cliente registrado.");
+            JOptionPane.showMessageDialog(null, "Proveedor registrado.");
             mostrar("");
             inhabilitar();
         } else {
-            JOptionPane.showMessageDialog(null, "No se ingreso el Cliente.");
+            JOptionPane.showMessageDialog(null, "No se ingreso el Proveedor.");
             mostrar("");
 
         }
@@ -666,7 +666,7 @@ public final class FrmProveedor extends javax.swing.JInternalFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
         if (txtCod_persona.getText().length() == 0) {
-            JOptionPane.showMessageDialog(null, "Seleccione un Cliente a eliminar");
+            JOptionPane.showMessageDialog(null, "Seleccione un Proveedor a eliminar");
             return;
         }
         int codigoPersona = Integer.parseInt(txtCod_persona.getText());

@@ -379,6 +379,23 @@ public class Fproducto {
         }
         return lista;
     }
+    
+     public ArrayList<String> llenar_combo2() {
+        ArrayList<String> lista2 = new ArrayList<String>();
+        sSQL = "select nombre_persona from persona";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+
+            while (rs.next()) {
+                lista2.add(rs.getString("nombre_persona"));
+              
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return lista2;
+    }
            
     
     

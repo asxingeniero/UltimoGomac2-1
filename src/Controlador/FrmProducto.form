@@ -74,7 +74,7 @@
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jPanel1" pref="670" max="32767" attributes="0"/>
+                  <Component id="jPanel1" pref="674" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -445,7 +445,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Unidad :"/>
+                    <Property name="text" type="java.lang.String" value="Proveedor :"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
@@ -533,11 +533,14 @@
                         <StringItem index="2" value="Gr"/>
                         <StringItem index="3" value="Litro"/>
                         <StringItem index="4" value="Envase"/>
-                        <StringItem index="5" value=" "/>
-                        <StringItem index="6" value=" "/>
+                        <StringItem index="5" value=""/>
+                        <StringItem index="6" value=""/>
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboUnidad_productoActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>

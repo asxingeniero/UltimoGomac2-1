@@ -68,10 +68,12 @@ public class Fproveedor {
 
         sSQL = "insert into persona (nombre_persona,direccion,telefono,email)"
                 + "values (?,?,?,?)";
+       
 
         sSQL2 = "insert into proveedor(cod_proveedor,rut_proveedor)"
                 + " values ((select cod_persona from persona order by cod_persona desc limit 1)"
                 + " ,?)";
+           
         try {
 
             PreparedStatement pst = cn.prepareStatement(sSQL);
@@ -81,9 +83,9 @@ public class Fproveedor {
             pst.setString(2, datos.getDireccion());
             pst.setString(3, datos.getTelefono());
             pst.setString(4, datos.getEmail());
-
+          
             pst2.setString(1, datos.getRut_proveedor());
-
+       
             int N = pst.executeUpdate();
             if (N != 0) {
 

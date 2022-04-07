@@ -235,7 +235,18 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
         ArrayList<String> lista = new ArrayList<String>();
         lista = funcion.llenar_combo();
         for (int i = 0; i < lista.size(); i++) {
-            jComboBox1.addItem(lista.get(i));
+            jComboBox1.addItem(lista.get(i)); // despliega categorias
+        }
+        /* 
+        Despliega registros de la tabla personas pero debe mostrar registros de la tabla personas
+        
+        */
+        Fproducto funcion2 = new Fproducto();
+        cboUnidad_producto.removeAllItems();           
+        ArrayList<String> lista2 = new ArrayList<String>();
+        lista2 = funcion2.llenar_combo2();
+        for (int i = 0; i < lista2.size(); i++) {
+            cboUnidad_producto.addItem(lista2.get(i)); // despliega personas
         }
 
     }
@@ -450,7 +461,7 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
         jLabel3.setText("Descripcion :");
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel5.setText("Unidad :");
+        jLabel5.setText("Proveedor :");
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("Precio Venta Detal:");
@@ -483,7 +494,12 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
 
         cboUnidad_producto.setBackground(new java.awt.Color(36, 33, 33));
         cboUnidad_producto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cboUnidad_producto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidad", "Kg", "Gr", "Litro", "Envase", " ", " " }));
+        cboUnidad_producto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidad", "Kg", "Gr", "Litro", "Envase", "", "" }));
+        cboUnidad_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboUnidad_productoActionPerformed(evt);
+            }
+        });
 
         txtDescripcion_producto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txtDescripcion_producto.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(207, 207, 207)));
@@ -757,7 +773,7 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
                         .addComponent(jLabel8))
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1107,6 +1123,14 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
         */
 
     }//GEN-LAST:event_jTablaMouseClicked
+
+    private void cboUnidad_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboUnidad_productoActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+    }//GEN-LAST:event_cboUnidad_productoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
