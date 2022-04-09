@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 04-04-2022 a las 20:39:36
+-- Tiempo de generación: 09-04-2022 a las 18:07:54
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.1.9
 
@@ -101,7 +101,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 --
 
 INSERT INTO `cliente` (`cod_cliente`, `rut_cliente`) VALUES
-(2, '0');
+(2, '0'),
+(3, '93345');
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,14 @@ CREATE TABLE IF NOT EXISTS `gastos` (
   `valor` bigint(20) NOT NULL,
   `obs` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   PRIMARY KEY (`cod_gastos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci COMMENT='gastos personales diarios';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci COMMENT='gastos personales diarios';
+
+--
+-- Volcado de datos para la tabla `gastos`
+--
+
+INSERT INTO `gastos` (`cod_gastos`, `descripcion`, `valor`, `obs`) VALUES
+(1, 'Almuerzo', 20000, 'almuerzo de trabajo');
 
 -- --------------------------------------------------------
 
@@ -229,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `cel_contacto` varchar(10) DEFAULT NULL,
   `correo_contacto` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`cod_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `persona`
@@ -237,7 +245,12 @@ CREATE TABLE IF NOT EXISTS `persona` (
 
 INSERT INTO `persona` (`cod_persona`, `nombre_persona`, `direccion`, `telefono`, `email`, `contacto`, `cel_contacto`, `correo_contacto`) VALUES
 (1, 'Administrator', 'Ibague', '300', 'admin@gmail.com', NULL, NULL, NULL),
-(2, 'Cliente General', '0', '0', '0', NULL, NULL, NULL);
+(2, 'Cliente General', '0', '0', '0', NULL, NULL, NULL),
+(3, 'Alvaro Salasar', 'Calle 65 ', '31818', 'salasar@gmail.com', NULL, NULL, NULL),
+(4, 'Luis Turraja', 'salado especial', '45455', 'turraja@gmail.com', '', '', ''),
+(5, 'Empresa 1', 'calle 19', '2323', 'cual@gmail.com', NULL, NULL, NULL),
+(6, 'Empresa 2', 'Ambala', '2424', 'dos@gmail.com', NULL, NULL, NULL),
+(9, 'Chocolatina Yumbo', 'jumbo', '500', 'yumbo@gmsil.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -260,6 +273,13 @@ CREATE TABLE IF NOT EXISTS `producto` (
   PRIMARY KEY (`cod_producto`,`cod_categoriaFK`),
   KEY `cod_cat_prodFK_idx` (`cod_categoriaFK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`cod_producto`, `nombre_producto`, `descripcion_producto`, `unidad_producto`, `precio_producto`, `precio_venta_mayor`, `precio_compra`, `stock_producto`, `ubicacion_bodega`, `cod_categoriaFK`) VALUES
+(1111111111111, 'uno', 'uno', 'Unidad', 10000, 9000, 8000, 50, '1', 1);
 
 -- --------------------------------------------------------
 
@@ -302,9 +322,18 @@ CREATE TABLE IF NOT EXISTS `productostock` (
 DROP TABLE IF EXISTS `proveedor`;
 CREATE TABLE IF NOT EXISTS `proveedor` (
   `cod_proveedor` int(11) NOT NULL,
-  `rut_proveedor` varchar(45) NOT NULL,
-  PRIMARY KEY (`cod_proveedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `rut_proveedor` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  KEY `fk_cod_proveedor` (`cod_proveedor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`cod_proveedor`, `rut_proveedor`) VALUES
+(5, '1313'),
+(6, '1414'),
+(9, '1515');
 
 -- --------------------------------------------------------
 
@@ -328,7 +357,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `rut_usuario`, `login`, `password`, `estado`, `acceso`) VALUES
-(1, '11101', '1', '1', 'Activo', 'Administrador');
+(1, '11101', '1', '1', 'Activo', 'Administrador'),
+(4, '3434', 'turraja', 'turraja', 'Activo', 'UsuarioC');
 
 -- --------------------------------------------------------
 
@@ -381,6 +411,12 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `detalle_venta`
   ADD CONSTRAINT `detalle_ventaFK` FOREIGN KEY (`cod_ventaFK`) REFERENCES `venta` (`cod_venta`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`cod_proveedor`) REFERENCES `persona` (`cod_persona`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

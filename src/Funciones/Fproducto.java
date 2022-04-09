@@ -382,7 +382,7 @@ public class Fproducto {
     
      public ArrayList<String> llenar_combo2() {
         ArrayList<String> lista2 = new ArrayList<String>();
-        sSQL = "select nombre_persona from persona";
+        sSQL = "SELECT persona.nombre_persona FROM persona, proveedor WHERE persona.cod_persona = proveedor.cod_proveedor";
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
