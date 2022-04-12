@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 09-04-2022 a las 18:07:54
+-- Tiempo de generación: 11-04-2022 a las 20:23:17
 -- Versión del servidor: 5.7.19
 -- Versión de PHP: 7.1.9
 
@@ -269,8 +269,8 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `precio_compra` bigint(20) NOT NULL,
   `stock_producto` bigint(20) NOT NULL,
   `ubicacion_bodega` varchar(250) DEFAULT NULL,
+  `cod_proveedor` varchar(11) DEFAULT NULL,
   `cod_categoriaFK` int(11) NOT NULL,
-  PRIMARY KEY (`cod_producto`,`cod_categoriaFK`),
   KEY `cod_cat_prodFK_idx` (`cod_categoriaFK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -278,8 +278,9 @@ CREATE TABLE IF NOT EXISTS `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`cod_producto`, `nombre_producto`, `descripcion_producto`, `unidad_producto`, `precio_producto`, `precio_venta_mayor`, `precio_compra`, `stock_producto`, `ubicacion_bodega`, `cod_categoriaFK`) VALUES
-(1111111111111, 'uno', 'uno', 'Unidad', 10000, 9000, 8000, 50, '1', 1);
+INSERT INTO `producto` (`cod_producto`, `nombre_producto`, `descripcion_producto`, `unidad_producto`, `precio_producto`, `precio_venta_mayor`, `precio_compra`, `stock_producto`, `ubicacion_bodega`, `cod_proveedor`, `cod_categoriaFK`) VALUES
+(111, '2', '3', 'unidad', 6, 7, 8, 9, '10', '5', 1),
+(222, 'cocacola', 'bebida', 'unidad', 3000, 2800, 2500, 50, '1', '6', 1);
 
 -- --------------------------------------------------------
 

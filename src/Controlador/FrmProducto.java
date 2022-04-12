@@ -876,6 +876,13 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
             txtDescripcion_producto.requestFocus();
             return;
         }
+        
+        if (cboUnidad_producto.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "DEBES CREAR UN PROVEEDOR");
+            cboUnidad_producto.requestFocus();
+            this.dispose();
+            return;
+        }
 
         if (txtPrecio.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Debes ingresar un Precio de venta.");
@@ -918,6 +925,12 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
         datos.setCod_producto(Long.valueOf(txtCod_producto.getText()));
         datos.setNombre_producto(txtNombre_producto.getText());
         datos.setDescripcion_producto(txtDescripcion_producto.getText());
+        
+        // en la siguiente linea
+        String unidad = "unidad";
+        datos.setUnidad_producto(unidad);
+        
+        
         datos.setStock_producto(Integer.parseInt(txtStock.getText()));
 
         datos.setPrecio_producto(Long.valueOf(txtPrecio.getText()));
@@ -925,9 +938,17 @@ public final class FrmProducto extends javax.swing.JInternalFrame {
         datos.setPrecio_venta_mayor(Long.valueOf(txtPrecioVentaMayor.getText())); // venta mayor
 
         datos.setPrecio_compra(Long.valueOf(txtPrecio_compra.getText()));
-
-        int unidad = cboUnidad_producto.getSelectedIndex();
-        datos.setUnidad_producto((String) cboUnidad_producto.getItemAt(unidad));
+       
+        /* 20220411
+           se debe cambiar el nombre del combo cboUnidad_producto a cboProveedor
+           se debe guardar el la bd el codigo del proveedor tomando como referencia
+           el nombre del proveedor que se despliega en el cboProveedor
+       */
+        int proveedor = cboUnidad_producto.getSelectedIndex();
+        datos.setCod_proveedor((String)cboUnidad_producto.getItemAt(proveedor));
+        
+       // int unidad = cboUnidad_producto.getSelectedIndex();
+       //datos.setUnidad_producto((String) cboUnidad_producto.getItemAt(unidad));
 
         datos.setUbicacion_bodega(txtUbicacion_bodega.getText());
 

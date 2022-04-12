@@ -33,6 +33,7 @@ public class Fproducto {
                     "Categoria"};
 
         String[] registros = new String[11];
+        
         totalRegistros = 0;
         modelo = new DefaultTableModel(null, titulos);
 
@@ -45,7 +46,7 @@ public class Fproducto {
 "	producto.precio_compra,\n" +
 "	producto.stock_producto,\n" +
 "	producto.ubicacion_bodega,\n" +
-"	producto.cod_categoriaFK,\n" +
+"	producto.cod_categoriaFK,\n" +             
 "	categoria.nombre_categoria,\n" +
 "	categoria.cod_categoria,\n" +
 "	categoria.descripcion_categoria\n" +
@@ -107,8 +108,8 @@ public class Fproducto {
     public boolean insertar(Dproducto datos,String nombre) {
 
         sSQL = "insert into producto (cod_producto, nombre_producto, descripcion_producto"
-                + ", unidad_producto, precio_producto, precio_venta_mayor, precio_compra, stock_producto,ubicacion_bodega,cod_categoriaFK)"
-                + " values (?,?,?,?,?,?,?,?,?,"
+                + ", unidad_producto, precio_producto, precio_venta_mayor, precio_compra, stock_producto,ubicacion_bodega,cod_proveedor,cod_categoriaFK)"
+                + " values (?,?,?,?,?,?,?,?,?,?,"
                 + "(select cod_categoria from categoria where nombre_categoria like '%" + nombre + "%'))";
         try {
 
@@ -126,7 +127,7 @@ public class Fproducto {
              pst.setLong(8, datos.getStock_producto());
             
             pst.setString(9, datos.getUbicacion_bodega());
-            
+            pst.setString(10, datos.getCod_proveedor());
             
             int N = pst.executeUpdate();
             if (N != 0) {
@@ -382,13 +383,15 @@ public class Fproducto {
     
      public ArrayList<String> llenar_combo2() {
         ArrayList<String> lista2 = new ArrayList<String>();
-        sSQL = "SELECT persona.nombre_persona FROM persona, proveedor WHERE persona.cod_persona = proveedor.cod_proveedor";
-        try {
+     //   sSQL = "SELECT persona.nombre_persona persona.cod_persona FROM persona, proveedor WHERE persona.cod_persona = proveedor.cod_proveedor";
+        sSQL = "SELECT persona.nombre_persona, persona.cod_persona FROM persona, proveedor WHERE persona.cod_persona = proveedor.cod_proveedor";
+     
+     try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sSQL);
 
             while (rs.next()) {
-                lista2.add(rs.getString("nombre_persona"));
+                lista2.add(rs.getString("cod_persona"));
               
             }
         } catch (Exception e) {

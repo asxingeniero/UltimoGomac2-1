@@ -15,6 +15,8 @@ public class Dproducto {
     private long stock_producto;                               //8
 
     private String ubicacion_bodega;                         //9
+    
+    private String cod_proveedor;
      
     // Se han creado 9 variables
 
@@ -213,4 +215,20 @@ public class Dproducto {
         this.ubicacion_bodega = ubicacion_bodega;
     }
   */
+
+    /**
+     * @return the cod_proveedor
+     */
+    public String getCod_proveedor() {
+        return cod_proveedor;
+    }
+
+    /**
+     * @param cod_proveedor the cod_proveedor to set
+     */
+    public void setCod_proveedor(String cod_proveedor) {
+        this.cod_proveedor = cod_proveedor;
+    }
+
+    
 }
